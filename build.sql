@@ -13,7 +13,7 @@ CREATE TABLE User(
 );
 
 CREATE TABLE Address(
-    address_id SERIAL PRIMARY KEY,
+    address_id INTEGER AUTO_INCREMENT PRIMARY KEY,
     fk_user_id INTEGER,
     number INTEGER,
     street VARCHAR(500),
