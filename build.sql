@@ -42,3 +42,12 @@ CREATE TABLE Message(
     FOREIGN KEY(fk_user_receiver_id) REFERENCES User(user_id),
     FOREIGN KEY(fk_user_sender_id) REFERENCES User(user_id)
 );
+
+CREATE TABLE Location(
+    location_id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    fk_user_id INTEGER,
+    latitude DECIMAL(10,8) NOT NULL,
+    longitude DECIMAL(11,8) NOT NULL,
+    date Date,
+    FOREIGN KEY(fk_user_id) REFERENCES User(user_id) ON DELETE CASCADE
+);
