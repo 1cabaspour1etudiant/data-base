@@ -12,16 +12,23 @@ CREATE TABLE User(
     backup_email VARCHAR(320) NOT NULL
 );
 
+CREATE TABLE Appointment(
+    appointment_id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    date Date
+);
+
 CREATE TABLE Address(
     address_id INTEGER AUTO_INCREMENT PRIMARY KEY,
     fk_user_id INTEGER,
+    fk_appointment_id INTEGER,
     number INTEGER,
     street VARCHAR(500),
     postal_code VARCHAR(10),
     city VARCHAR(64),
     date DATE,
-    FOREIGN KEY(fk_user_id) REFERENCES User(user_id)
-    ON DELETE CASCADE
+    FOREIGN KEY(fk_user_id) REFERENCES User(user_id) ON DELETE CASCADE,
+    FOREIGN KEY(fk_appointment_id) REFERENCES Appointment(appointment_id) ON DELETE CASCADE,
+    CONSTRAINT CHECK(fk_user_id != NULL || fk_appointment_id != NULL)
 );
 
 CREATE TABLE Sponsorship(
