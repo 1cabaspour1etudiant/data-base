@@ -28,7 +28,7 @@ CREATE TABLE Address(
     date DATE,
     FOREIGN KEY(fk_user_id) REFERENCES User(user_id) ON DELETE CASCADE,
     FOREIGN KEY(fk_appointment_id) REFERENCES Appointment(appointment_id) ON DELETE CASCADE,
-    CONSTRAINT CHECK(fk_user_id != NULL || fk_appointment_id != NULL)
+    CONSTRAINT CHECK(fk_user_id IS NOT NULL || fk_appointment_id IS NOT NULL)
 );
 
 CREATE TABLE Sponsorship(
