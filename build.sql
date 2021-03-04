@@ -17,6 +17,14 @@ CREATE TABLE Appointment(
     date Date
 );
 
+CREATE TABLE AppointmentMember(
+    appointment_member_id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    fk_appointment_id INTEGER,
+    fk_user_id INTEGER,
+    FOREIGN KEY(fk_appointment_id) REFERENCES Appointment(appointment_id) ON DELETE CASCADE,
+    FOREIGN KEY(fk_user_id) REFERENCES User(user_id) ON DELETE CASCADE
+);
+
 CREATE TABLE Address(
     address_id INTEGER AUTO_INCREMENT PRIMARY KEY,
     fk_user_id INTEGER,
