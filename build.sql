@@ -32,3 +32,13 @@ CREATE TABLE Sponsorship(
     FOREIGN KEY(fk_user_sponsored_id) REFERENCES User(user_id),
     FOREIGN KEY(fk_user_sponsor_id) REFERENCES User(user_id)
 );
+
+CREATE TABLE Message(
+    message_id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    fk_user_receiver_id INTEGER,
+    fk_user_sender_id INTEGER,
+    content Text,
+    date Date,
+    FOREIGN KEY(fk_user_receiver_id) REFERENCES User(user_id),
+    FOREIGN KEY(fk_user_sender_id) REFERENCES User(user_id)
+);
