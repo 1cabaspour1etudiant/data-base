@@ -17,7 +17,7 @@ CREATE TABLE Appointment(
     date Date
 );
 
-CREATE TABLE AppointmentMember(
+CREATE TABLE Appointment_member(
     appointment_member_id INTEGER AUTO_INCREMENT PRIMARY KEY,
     fk_appointment_id INTEGER,
     fk_user_id INTEGER,
