@@ -23,3 +23,10 @@ CREATE TABLE Address(
     FOREIGN KEY(fk_user_id) REFERENCES User(user_id)
     ON DELETE CASCADE
 );
+
+CREATE TABLE Sponsorship(
+    sponsorship_id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    fk_user_sponsored_id INTEGER,
+    fk_user_sponsor_id INTEGER,
+    date Date
+);
