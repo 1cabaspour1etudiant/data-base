@@ -1,8 +1,10 @@
 DROP DATABASE IF EXISTS helpYourNeighbour;
 CREATE DATABASE helpYourNeighbour;
 
-CREATE TABLE IF NOT EXISTS PEOPLE(
-    people_id SERIAL PRIMARY KEY,
+use helpYourNeighbour;
+
+CREATE TABLE User(
+    user_id INTEGER AUTO_INCREMENT PRIMARY KEY,
     firstname VARCHAR(32) NOT NULL,
     lastname VARCHAR(64) NOT NULL,
     password TEXT NOT NULL,
@@ -10,14 +12,14 @@ CREATE TABLE IF NOT EXISTS PEOPLE(
     backup_email VARCHAR(320) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS Address (
+CREATE TABLE Address(
     address_id SERIAL PRIMARY KEY,
-    fk_people_id INTEGER,
+    fk_user_id INTEGER,
     number INTEGER,
     street VARCHAR(500),
     postal_code VARCHAR(10),
     city VARCHAR(64),
     date DATE,
-    FOREIGN KEY(fk_people_id) REFERENCES PEOPLE(people_id)
+    FOREIGN KEY(fk_user_id) REFERENCES User(user_id)
     ON DELETE CASCADE
 );
