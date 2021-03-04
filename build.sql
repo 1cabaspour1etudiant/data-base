@@ -66,3 +66,10 @@ CREATE TABLE Location(
     date Date,
     FOREIGN KEY(fk_user_id) REFERENCES User(user_id) ON DELETE CASCADE
 );
+
+CREATE TABLE Login_history(
+    fk_user_id INTEGER,
+    ip_address VARCHAR(128),
+    date Date,
+    FOREIGN KEY(fk_user_id) REFERENCES User(user_id) ON DELETE CASCADE
+);
